@@ -5853,8 +5853,22 @@ if (!isset($_SESSION['authenticated'])) {
                     }
                 });
                 
-                // Calcular impagos de meses anteriores
+                // ⭐ FECHA DE INICIO DEL NEGOCIO: Mayo 2025
+                const businessStartYear = 2025;
+                const businessStartMonth = 5;
+                
+                // Función para verificar si un período es válido (posterior al inicio del negocio)
+                function isPeriodValid(year, month) {
+                    if (year > businessStartYear) return true;
+                    if (year === businessStartYear && month >= businessStartMonth) return true;
+                    return false;
+                }
+                
+                // Calcular impagos de meses anteriores (solo desde mayo 2025)
                 for (let month = 1; month < currentMonth; month++) {
+                    // Solo revisar si el período es válido
+                    if (!isPeriodValid(currentYear, month)) continue;
+                    
                     const applicableItems = taxFixedItems.filter(item => 
                         item.frequency === 'monthly' || (item.frequency === 'annual' && month === 12)
                     );
@@ -5868,8 +5882,11 @@ if (!isset($_SESSION['authenticated'])) {
                     });
                 }
                 
-                // También revisar años anteriores para anuales
-                for (let year = currentYear - 2; year < currentYear; year++) {
+                // También revisar años anteriores para anuales (solo desde 2025)
+                for (let year = businessStartYear; year < currentYear; year++) {
+                    // Para años anteriores a 2025, no revisar nada
+                    if (year < businessStartYear) continue;
+                    
                     const annualItems = taxFixedItems.filter(item => item.frequency === 'annual');
                     
                     annualItems.forEach(item => {
