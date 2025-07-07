@@ -1804,6 +1804,27 @@ if (!isset($_SESSION['authenticated'])) {
             </div>
         </div>
 
+        <!-- Checklist del período seleccionado -->
+        <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 30px;">
+            <h3>📋 Checklist del Período</h3>
+            
+            <!-- Impuestos del período -->
+            <div style="margin-bottom: 30px;">
+                <h4 style="color: #e74c3c; border-bottom: 2px solid #e74c3c; padding-bottom: 5px;">🏛️ Impuestos</h4>
+                <div id="taxChecklistItems">
+                    <!-- Se populará con JavaScript -->
+                </div>
+            </div>
+
+            <!-- Gastos fijos del período -->
+            <div>
+                <h4 style="color: #27ae60; border-bottom: 2px solid #27ae60; padding-bottom: 5px;">🔒 Gastos Fijos</h4>
+                <div id="fixedExpenseChecklistItems">
+                    <!-- Se populará con JavaScript -->
+                </div>
+            </div>
+        </div>
+
         <!-- Gestión de Impuestos -->
         <div style="background: #ffebee; padding: 20px; border-radius: 10px; margin-bottom: 30px;">
             <h3>🏛️ Gestión de Impuestos</h3>
@@ -1845,7 +1866,7 @@ if (!isset($_SESSION['authenticated'])) {
         </div>
 
         <!-- Gestión de Gastos Fijos -->
-        <div style="background: #e8f5e8; padding: 20px; border-radius: 10px; margin-bottom: 30px;">
+        <div style="background: #e8f5e8; padding: 20px; border-radius: 10px;">
             <h3>🔒 Gestión de Gastos Fijos</h3>
             
             <!-- Formulario para agregar nuevo gasto fijo -->
@@ -1881,27 +1902,6 @@ if (!isset($_SESSION['authenticated'])) {
             <h4>Gastos Fijos Configurados:</h4>
             <div id="fixedExpenseItemsList">
                 <!-- Se populará con JavaScript -->
-            </div>
-        </div>
-
-        <!-- Checklist del período seleccionado -->
-        <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
-            <h3>📋 Checklist del Período</h3>
-            
-            <!-- Impuestos del período -->
-            <div style="margin-bottom: 30px;">
-                <h4 style="color: #e74c3c; border-bottom: 2px solid #e74c3c; padding-bottom: 5px;">🏛️ Impuestos</h4>
-                <div id="taxChecklistItems">
-                    <!-- Se populará con JavaScript -->
-                </div>
-            </div>
-
-            <!-- Gastos fijos del período -->
-            <div>
-                <h4 style="color: #27ae60; border-bottom: 2px solid #27ae60; padding-bottom: 5px;">🔒 Gastos Fijos</h4>
-                <div id="fixedExpenseChecklistItems">
-                    <!-- Se populará con JavaScript -->
-                </div>
             </div>
         </div>
     </div>
