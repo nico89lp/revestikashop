@@ -2812,6 +2812,11 @@ if (!isset($_SESSION['authenticated'])) {
                 categories = await loadFromDatabase('categories') || [];
                 stockData = await loadFromDatabase('stock') || {};
                 investments = await loadFromDatabase('investments') || [];
+                
+                // ⭐ NUEVO: Cargar datos de impuestos y gastos fijos desde el inicio
+                taxFixedItems = await loadFromDatabase('tax_fixed_items') || [];
+                taxFixedPayments = await loadFromDatabase('tax_fixed_payments') || [];
+                
                 await updateTaxIndicatorsInDashboard();
 
                 // Datos por defecto si están vacíos
